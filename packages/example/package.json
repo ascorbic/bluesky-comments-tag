@@ -1,0 +1,36 @@
+{
+	"name": "@ascorbic/example",
+	"version": "0.0.0",
+	"description": "",
+	"type": "module",
+	"main": "dist/index.js",
+	"files": [
+		"dist"
+	],
+	"exports": {
+		".": "./dist/index.js"
+	},
+	"scripts": {
+		"build": "tsup src/index.ts --format esm --dts --clean",
+		"dev": "tsup src/index.ts --format esm --dts --watch",
+		"prepublishOnly": "node --run build",
+		"check": "publint && attw $(pnpm pack) --ignore-rules=cjs-resolves-to-esm",
+		"test": "vitest"
+	},
+	"devDependencies": {
+		"@arethetypeswrong/cli": "^0.17.0",
+		"@types/feedparser": "^2.2.8",
+		"publint": "^0.2.12",
+		"tsup": "^8.3.5",
+		"typescript": "^5.7.2"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+github.com:ascorbic/library-template.git",
+		"directory": "packages/example"
+	},
+	"homepage": "https://github.com/ascorbic/library-template",
+	"keywords": [],
+	"author": "Matt Kane",
+	"license": "MIT"
+}
