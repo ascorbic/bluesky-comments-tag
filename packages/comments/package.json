@@ -1,28 +1,26 @@
 {
-	"name": "@ascorbic/example",
+	"name": "bluesky-comments-tag",
 	"version": "0.0.0",
 	"description": "",
 	"type": "module",
-	"main": "dist/index.js",
+	"main": "./index.js",
 	"files": [
 		"dist"
 	],
 	"exports": {
-		".": "./dist/index.js"
+		".": "./index.js",
+		"./load": "./bluesky-comments.js",
+		"./bluesky-comments.js": "./bluesky-comments.js"
 	},
 	"scripts": {
-		"build": "tsup src/index.ts --format esm --dts --clean",
-		"dev": "tsup src/index.ts --format esm --dts --watch",
+		"analyze": "cem analyze",
 		"prepublishOnly": "node --run build",
-		"check": "publint && attw $(pnpm pack) --ignore-rules=cjs-resolves-to-esm",
+		"check": "publint",
 		"test": "vitest"
 	},
 	"devDependencies": {
-		"@arethetypeswrong/cli": "^0.17.0",
-		"@types/feedparser": "^2.2.8",
-		"publint": "^0.2.12",
-		"tsup": "^8.3.5",
-		"typescript": "^5.7.2"
+		"@custom-elements-manifest/analyzer": "^0.10.3",
+		"publint": "^0.2.12"
 	},
 	"repository": {
 		"type": "git",
@@ -32,5 +30,6 @@
 	"homepage": "https://github.com/ascorbic/library-template",
 	"keywords": [],
 	"author": "Matt Kane",
-	"license": "MIT"
+	"license": "MIT",
+	"customElements": "custom-elements.json"
 }

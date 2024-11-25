@@ -1,0 +1,186 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "bluesky-comments.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "bluesky-comments",
+          "declaration": {
+            "name": "BlueskyComments",
+            "module": "/src/BlueskyComments.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "BlueskyComments",
+          "declaration": {
+            "name": "BlueskyComments",
+            "module": "\"./src/BlueskyComments.js\""
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/BlueskyComments.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "BlueskyComments",
+          "members": [
+            {
+              "kind": "field",
+              "name": "properties",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "default": "{ /** The URL of the Bluesky post to use as the parent */ url: { type: String }, }"
+            },
+            {
+              "kind": "field",
+              "name": "#observer",
+              "privacy": "private",
+              "default": "new IntersectionObserver( (entries) => { entries.forEach((entry) => { if (entry.isIntersecting && !this.#loaded) { this.#loadComments(); this.#loaded = true; this.#observer.disconnect(); } }); }, { threshold: 0.1 }, )"
+            },
+            {
+              "kind": "field",
+              "name": "#loaded",
+              "privacy": "private",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "#loadComments",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#resolvePostUrl",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "postUrl"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "#setCache",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "key"
+                },
+                {
+                  "name": "value"
+                },
+                {
+                  "name": "ttl",
+                  "default": "86400"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "#getCache",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "key"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "#fetchReplies",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "atUri"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "#displayReplies",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "thread"
+                },
+                {
+                  "name": "container",
+                  "default": "null"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "#displayComments",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "thread"
+                },
+                {
+                  "name": "container"
+                },
+                {
+                  "name": "isReply",
+                  "default": "false"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "#getAbbreviatedTime",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "date"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "innerHTML",
+              "default": "` <style> :host { --bluesky-font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif; --bluesky-text-color: #333; --bluesky-handle-color: #888; --bluesky-primary-color: rgb(111, 134, 159); --bluesky-border-color: #ccc; --bluesky-bg-color: #fff; --bluesky-hover-bg: #f0f0f0; --bluesky-spacing-xs: 5px; --bluesky-spacing-sm: 8px; --bluesky-spacing-md: 10px; --bluesky-avatar-size: 24px; --bluesky-avatar-border-color: #ddd; --bluesky-avatar-bg: #e0e0e0; /* Comments Structure */ --bluesky-comment-border-color: #eee; --bluesky-reply-border-color: #e0e0e0; --bluesky-reply-border-width: 2px; /* Footer */ --bluesky-footer-font-size: 14px; --bluesky-icon-size: 18px; } /* Container Styles */ .comments { font-family: var(--bluesky-font-family); background-color: var(--bluesky-bg-color); border: 1px solid var(--bluesky-border-color); padding: var(--bluesky-spacing-md) 0; color: var(--bluesky-text-color); } /* Comment Structure */ .comment { border-bottom: 1px solid var(--bluesky-comment-border-color); padding-top: var(--bluesky-spacing-xs); } .comment.reply { border-left: var(--bluesky-reply-border-width) solid var(--bluesky-reply-border-color); margin-left: var(--bluesky-spacing-md); } .comment:last-child { border-bottom: none; } .avatar { width: var(--bluesky-avatar-size); height: var(--bluesky-avatar-size); border-radius: 50%; object-fit: cover; border: 2px solid var(--bluesky-avatar-border-color); } .default-avatar { width: var(--bluesky-avatar-size); height: var(--bluesky-avatar-size); border-radius: 50%; background-color: var(--bluesky-avatar-bg); } .comment-header { display: flex; align-items: center; gap: var(--bluesky-spacing-md); padding-left: var(--bluesky-spacing-sm); } .comment-content { margin-top: var(--bluesky-spacing-xs); } .comment-footer { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--bluesky-spacing-md); font-size: var(--bluesky-footer-font-size); color: var(--bluesky-primary-color); padding: var(--bluesky-spacing-xs); } .comment-footer div { display: flex; align-items: center; gap: var(--bluesky-spacing-xs); } .comment-link { display: flex; flex-direction: column; color: inherit; text-decoration: none; padding: 0 var(--bluesky-spacing-sm); } .profile-link { color: var(--bluesky-text-color); text-decoration: none; } .timestamp-link { color: var(--bluesky-handle-color); text-decoration: none; } .comment-link:hover, .profile-link:hover, .timestamp-link:hover, .comment-footer:hover { background-color: var(--bluesky-hover-bg); } .handle { color: var(--bluesky-handle-color); } .comment-footer svg { width: var(--bluesky-icon-size); height: var(--bluesky-icon-size); color: var(--bluesky-primary-color); } </style> <div class=\"comments\"></div> `"
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "tagName": "bluesky-comments",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "BlueskyComments",
+          "declaration": {
+            "name": "BlueskyComments",
+            "module": "src/BlueskyComments.js"
+          }
+        }
+      ]
+    }
+  ]
+}

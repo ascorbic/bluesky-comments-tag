@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bluesky Comments Demo</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
+    />
+    <style>
+      /* Page Styles */
+      :root {
+        --bg-light: #f8fafc;
+        --bg-dark: #1a202c;
+        --text-light: #2d3748;
+        --text-dark: #e2e8f0;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        background: var(--bg-light);
+        color: var(--text-light);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          background: var(--bg-dark);
+          color: var(--text-dark);
+        }
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 0.5rem;
+      }
+
+      .demo-section {
+        margin: 2rem 0;
+        padding: 2rem;
+        border-radius: 8px;
+        background: white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .demo-section {
+          background: #2d3748;
+        }
+      }
+
+      .code-preview {
+        margin: 1rem 0;
+        padding: 1rem;
+        background: #f7fafc;
+        border-radius: 4px;
+        overflow: auto;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .code-preview {
+          background: #2d3748;
+        }
+      }
+
+      /* Default Theme */
+      .default-theme {
+        --bluesky-bg-color: white;
+        --bluesky-primary-color: rgb(111, 134, 159);
+        --bluesky-border-color: #e2e8f0;
+        --bluesky-hover-bg: #f7fafc;
+      }
+
+      /* Modern Theme */
+      .modern-theme {
+        --bluesky-bg-color: #ffffff;
+        --bluesky-font-family: ui-sans-serif, system-ui, -apple-system,
+          sans-serif;
+        --bluesky-primary-color: #3b82f6;
+        --bluesky-border-color: #e5e7eb;
+        --bluesky-hover-bg: #f8fafc;
+        --bluesky-spacing-md: 16px;
+        --bluesky-avatar-size: 36px;
+        --bluesky-reply-border-width: 3px;
+        --bluesky-reply-border-color: #e5e7eb;
+      }
+
+      /* Minimal Theme */
+      .minimal-theme {
+        --bluesky-bg-color: #fafafa;
+        --bluesky-primary-color: #64748b;
+        --bluesky-border-color: transparent;
+        --bluesky-hover-bg: #f8fafc;
+        --bluesky-spacing-xs: 4px;
+        --bluesky-spacing-sm: 6px;
+        --bluesky-spacing-md: 8px;
+        --bluesky-avatar-size: 28px;
+        --bluesky-reply-border-width: 1px;
+        --bluesky-reply-border-color: #e2e8f0;
+      }
+
+      /* Dark Theme */
+      .dark-theme {
+        --bluesky-bg-color: #1e293b;
+        --bluesky-text-color: #e2e8f0;
+        --bluesky-border-color: #4a5568;
+        --bluesky-hover-bg: #2d3748;
+        --bluesky-primary-color: #60a5fa;
+        --bluesky-handle-color: #9ca3af;
+        --bluesky-comment-border-color: #4a5568;
+        --bluesky-reply-border-color: #4b5563;
+        --bluesky-avatar-border-color: #4a5568;
+      }
+
+      /* Compact Theme */
+      .compact-theme {
+        --bluesky-bg-color: white;
+        --bluesky-spacing-xs: 4px;
+        --bluesky-spacing-sm: 6px;
+        --bluesky-spacing-md: 8px;
+        --bluesky-avatar-size: 20px;
+        --bluesky-footer-font-size: 12px;
+        --bluesky-icon-size: 14px;
+        --bluesky-reply-border-width: 1px;
+      }
+
+      /* Brand Theme (GitHub-inspired) */
+      .brand-theme {
+        --bluesky-bg-color: #f6f8fa;
+        --bluesky-primary-color: #2da44e;
+        --bluesky-border-color: #d0d7de;
+        --bluesky-hover-bg: #f6f8fa;
+        --bluesky-text-color: #1f2328;
+        --bluesky-handle-color: #656d76;
+        --bluesky-reply-border-color: #d8dee4;
+        --bluesky-avatar-border-color: #d0d7de;
+        --bluesky-spacing-md: 16px;
+        --bluesky-avatar-size: 32px;
+      }
+
+      /* System Dark Mode Override */
+      @media (prefers-color-scheme: dark) {
+        .default-theme {
+          --bluesky-bg-color: #1e293b;
+          --bluesky-text-color: #e2e8f0;
+          --bluesky-border-color: #4a5568;
+          --bluesky-hover-bg: #2d3748;
+          --bluesky-primary-color: #60a5fa;
+          --bluesky-handle-color: #9ca3af;
+        }
+      }
+
+      .theme-toggle {
+        margin: 1rem 0;
+      }
+
+      .theme-toggle select {
+        padding: 0.5rem;
+        border-radius: 4px;
+        border: 1px solid #e2e8f0;
+        background: white;
+        font-size: 1rem;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .theme-toggle select {
+          background: #2d3748;
+          color: #e2e8f0;
+          border-color: #4a5568;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Bluesky Comments Component Demo</h1>
+      <p>
+        This demo showcases different styling options for the Bluesky Comments
+        component. Use the dropdown to switch between themes.
+      </p>
+
+      <div class="theme-toggle">
+        <select id="themeSelector" onchange="changeTheme(this.value)">
+          <option value="default-theme">Default Theme</option>
+          <option value="modern-theme">Modern Theme</option>
+          <option value="minimal-theme">Minimal Theme</option>
+          <option value="dark-theme">Dark Theme</option>
+          <option value="compact-theme">Compact Theme</option>
+          <option value="brand-theme">Brand Theme (GitHub-inspired)</option>
+        </select>
+      </div>
+
+      <div class="demo-section">
+        <bluesky-comments
+          id="commentsComponent"
+          class="default-theme"
+          url="https://bsky.app/profile/mk.gg/post/3lb7dimbih224"
+        >
+        </bluesky-comments>
+      </div>
+
+      <h2>Theme CSS</h2>
+      <div class="code-preview">
+        <pre><code class="language-css" id="themeCode">{`
+/* Default Theme */
+.default-theme {
+    --bluesky-bg-color: white;
+    --bluesky-primary-color: rgb(111, 134, 159);
+    --bluesky-border-color: #e2e8f0;
+    --bluesky-hover-bg: #f7fafc;
+}
+
+/* System Dark Mode Override */
+@media (prefers-color-scheme: dark) {
+    .default-theme {
+        --bluesky-bg-color: #1e293b;
+        --bluesky-text-color: #e2e8f0;
+        --bluesky-border-color: #4a5568;
+        --bluesky-hover-bg: #2d3748;
+        --bluesky-primary-color: #60a5fa;
+        --bluesky-handle-color: #9ca3af;
+    }
+}`}
+            </code></pre>
+      </div>
+    </div>
+
+    <script>
+      import "bluesky-comments-tag/bluesky-comments.js";
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"
+    ></script>
+    <script>
+      // Theme definitions
+      const themes = {
+        "default-theme": `/* Default Theme */
+.default-theme {
+    --bluesky-bg-color: white;
+    --bluesky-primary-color: rgb(111, 134, 159);
+    --bluesky-border-color: #e2e8f0;
+    --bluesky-hover-bg: #f7fafc;
+}
+
+/* System Dark Mode Override */
+@media (prefers-color-scheme: dark) {
+    .default-theme {
+        --bluesky-bg-color: #1e293b;
+        --bluesky-text-color: #e2e8f0;
+        --bluesky-border-color: #4a5568;
+        --bluesky-hover-bg: #2d3748;
+        --bluesky-primary-color: #60a5fa;
+        --bluesky-handle-color: #9ca3af;
+    }
+}`,
+        "modern-theme": `/* Modern Theme */
+.modern-theme {
+    --bluesky-bg-color: #ffffff;
+    --bluesky-font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --bluesky-primary-color: #3b82f6;
+    --bluesky-border-color: #e5e7eb;
+    --bluesky-hover-bg: #f8fafc;
+    --bluesky-spacing-md: 16px;
+    --bluesky-avatar-size: 36px;
+    --bluesky-reply-border-width: 3px;
+    --bluesky-reply-border-color: #e5e7eb;
+}`,
+        "minimal-theme": `/* Minimal Theme */
+.minimal-theme {
+    --bluesky-bg-color: #fafafa;
+    --bluesky-primary-color: #64748b;
+    --bluesky-border-color: transparent;
+    --bluesky-hover-bg: #f8fafc;
+    --bluesky-spacing-xs: 4px;
+    --bluesky-spacing-sm: 6px;
+    --bluesky-spacing-md: 8px;
+    --bluesky-avatar-size: 28px;
+    --bluesky-reply-border-width: 1px;
+    --bluesky-reply-border-color: #e2e8f0;
+}`,
+        "dark-theme": `/* Dark Theme */
+.dark-theme {
+    --bluesky-bg-color: #1e293b;
+    --bluesky-text-color: #e2e8f0;
+    --bluesky-border-color: #4a5568;
+    --bluesky-hover-bg: #2d3748;
+    --bluesky-primary-color: #60a5fa;
+    --bluesky-handle-color: #9ca3af;
+    --bluesky-comment-border-color: #4a5568;
+    --bluesky-reply-border-color: #4b5563;
+    --bluesky-avatar-border-color: #4a5568;
+}`,
+        "compact-theme": `/* Compact Theme */
+.compact-theme {
+    --bluesky-bg-color: white;
+    --bluesky-spacing-xs: 4px;
+    --bluesky-spacing-sm: 6px;
+    --bluesky-spacing-md: 8px;
+    --bluesky-avatar-size: 20px;
+    --bluesky-footer-font-size: 12px;
+    --bluesky-icon-size: 14px;
+    --bluesky-reply-border-width: 1px;
+}`,
+        "brand-theme": `/* Brand Theme (GitHub-inspired) */
+.brand-theme {
+    --bluesky-bg-color: #f6f8fa;
+    --bluesky-primary-color: #2da44e;
+    --bluesky-border-color: #d0d7de;
+    --bluesky-hover-bg: #f6f8fa;
+    --bluesky-text-color: #1F2328;
+    --bluesky-handle-color: #656d76;
+    --bluesky-reply-border-color: #d8dee4;
+    --bluesky-avatar-border-color: #d0d7de;
+    --bluesky-spacing-md: 16px;
+    --bluesky-avatar-size: 32px;
+}`,
+      };
+
+      function changeTheme(themeName) {
+        const component = document.getElementById("commentsComponent");
+        component.className = themeName;
+
+        // Update the code preview
+        const codeElement = document.getElementById("themeCode");
+        codeElement.textContent = themes[themeName];
+        Prism.highlightElement(codeElement);
+      }
+    </script>
+  </body>
+</html>
