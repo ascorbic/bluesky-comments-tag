@@ -1,11 +1,13 @@
 {
 	"name": "bluesky-comments-tag",
 	"version": "0.0.0",
-	"description": "",
+	"description": "Embed Bluesky comments in your site",
 	"type": "module",
 	"main": "./index.js",
 	"files": [
-		"dist"
+		"src",
+		"bluesky-comments.js",
+		"index.js"
 	],
 	"exports": {
 		".": "./index.js",
@@ -24,10 +26,10 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+github.com:ascorbic/library-template.git",
+		"url": "git+https://github.com:ascorbic/bluesky-comments-tag.git",
 		"directory": "packages/example"
 	},
-	"homepage": "https://github.com/ascorbic/library-template",
+	"homepage": "https://github.com/ascorbic/bluesky-comments-tag",
 	"keywords": [],
 	"author": "Matt Kane",
 	"license": "MIT",
