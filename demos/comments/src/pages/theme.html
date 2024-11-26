@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -71,94 +71,199 @@
 			}
 		}
 
-		/* Default Theme */
-		.default-theme {
-			--bluesky-bg-color: white;
-			--bluesky-primary-color: rgb(111, 134, 159);
-			--bluesky-border-color: #e2e8f0;
-			--bluesky-hover-bg: #f7fafc;
-		}
-
-		/* Modern Theme */
-		.modern-theme {
+		/* Modern Blog Theme */
+		.modern-blog-theme {
 			--bluesky-bg-color: #ffffff;
-			--bluesky-font-family: ui-sans-serif, system-ui, -apple-system,
-				sans-serif;
-			--bluesky-primary-color: #3b82f6;
-			--bluesky-border-color: #e5e7eb;
+			--bluesky-font-family: 'Inter', system-ui, sans-serif;
+			--bluesky-font-size: 15px;
+			--bluesky-text-color: #1a2b3c;
+			--bluesky-handle-color: #64748b;
+			--bluesky-footer-text-color: #94a3b8;
+			--bluesky-border-color: #e2e8f0;
 			--bluesky-hover-bg: #f8fafc;
+			--bluesky-spacing-xs: 8px;
+			--bluesky-spacing-sm: 12px;
 			--bluesky-spacing-md: 16px;
-			--bluesky-avatar-size: 36px;
-			--bluesky-reply-border-width: 3px;
-			--bluesky-reply-border-color: #e5e7eb;
+			--bluesky-avatar-size: 40px;
+			--bluesky-avatar-bg: #f1f5f9;
+			--bluesky-reply-border-width: 2px;
+			--bluesky-footer-font-size: 13px;
+			--bluesky-icon-size: 16px;
 		}
 
-		/* Minimal Theme */
-		.minimal-theme {
-			--bluesky-bg-color: #fafafa;
-			--bluesky-primary-color: #64748b;
-			--bluesky-border-color: transparent;
-			--bluesky-hover-bg: #f8fafc;
-			--bluesky-spacing-xs: 4px;
-			--bluesky-spacing-sm: 6px;
-			--bluesky-spacing-md: 8px;
-			--bluesky-avatar-size: 28px;
+		.modern-blog-theme::part(avatar) {
+			border: 2px solid #fff;
+			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		}
+
+		.modern-blog-theme::part(comment-content) {
+			line-height: 1.6;
+		}
+
+		/* Documentation Theme */
+		.documentation-theme {
+			--bluesky-bg-color: #fcfcfc;
+			--bluesky-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			--bluesky-font-size: 14px;
+			--bluesky-text-color: #2c3e50;
+			--bluesky-handle-color: #718096;
+			--bluesky-footer-text-color: #a0aec0;
+			--bluesky-border-color: #edf2f7;
+			--bluesky-hover-bg: #f7fafc;
+			--bluesky-spacing-xs: 6px;
+			--bluesky-spacing-sm: 10px;
+			--bluesky-spacing-md: 12px;
+			--bluesky-avatar-size: 32px;
+			--bluesky-avatar-bg: #edf2f7;
 			--bluesky-reply-border-width: 1px;
-			--bluesky-reply-border-color: #e2e8f0;
+			--bluesky-footer-font-size: 12px;
+			--bluesky-icon-size: 14px;
+		}
+
+		.documentation-theme::part(comment-header) {
+			padding: 8px 12px;
+			background: #f8fafc;
+			border-radius: 4px 4px 0 0;
 		}
 
 		/* Dark Theme */
 		.dark-theme {
-			--bluesky-bg-color: #1e293b;
-			--bluesky-text-color: #e2e8f0;
-			--bluesky-border-color: #4a5568;
-			--bluesky-hover-bg: #2d3748;
-			--bluesky-primary-color: #60a5fa;
-			--bluesky-handle-color: #9ca3af;
-			--bluesky-comment-border-color: #4a5568;
-			--bluesky-reply-border-color: #4b5563;
-			--bluesky-avatar-border-color: #4a5568;
+			--bluesky-bg-color: #1e1e2e;
+			--bluesky-font-family: system-ui, sans-serif;
+			--bluesky-font-size: 14px;
+			--bluesky-text-color: #cdd6f4;
+			--bluesky-handle-color: #a6adc8;
+			--bluesky-footer-text-color: #7f849c;
+			--bluesky-border-color: #313244;
+			--bluesky-hover-bg: #181825;
+			--bluesky-spacing-xs: 6px;
+			--bluesky-spacing-sm: 10px;
+			--bluesky-spacing-md: 14px;
+			--bluesky-avatar-size: 36px;
+			--bluesky-avatar-bg: #313244;
+			--bluesky-reply-border-width: 1px;
+			--bluesky-footer-font-size: 13px;
+			--bluesky-icon-size: 16px;
 		}
 
-		/* Compact Theme */
-		.compact-theme {
-			--bluesky-bg-color: white;
+		.dark-theme::part(comment-header) {
+			background: rgba(49, 50, 68, 0.5);
+		}
+
+		.dark-theme::part(avatar) {
+			border: 1px solid #45475a;
+		}
+
+		/* Reddit Theme */
+		.reddit-theme {
+			--bluesky-bg-color: #ffffff;
+			--bluesky-font-family: Verdana, arial, helvetica, sans-serif;
+			--bluesky-font-size: 13px;
+			--bluesky-text-color: #1c1c1c;
+			--bluesky-handle-color: #787c7e;
+			--bluesky-footer-text-color: #787c7e;
+			--bluesky-border-color: #edeff1;
+			--bluesky-hover-bg: #f6f7f8;
 			--bluesky-spacing-xs: 4px;
 			--bluesky-spacing-sm: 6px;
 			--bluesky-spacing-md: 8px;
-			--bluesky-avatar-size: 20px;
 			--bluesky-footer-font-size: 12px;
-			--bluesky-icon-size: 14px;
+			--bluesky-icon-size: 16px;
+			--bluesky-avatar-size: 0px;
 			--bluesky-reply-border-width: 1px;
+			--bluesky-reply-border-color: #edeff1;
 		}
 
-		/* Brand Theme (GitHub-inspired) */
-		.brand-theme {
-			--bluesky-bg-color: #f6f8fa;
-			--bluesky-primary-color: #2da44e;
-			--bluesky-border-color: #d0d7de;
-			--bluesky-hover-bg: #f6f8fa;
-			--bluesky-text-color: #1f2328;
-			--bluesky-handle-color: #656d76;
-			--bluesky-reply-border-color: #d8dee4;
-			--bluesky-avatar-border-color: #d0d7de;
-			--bluesky-spacing-md: 16px;
-			--bluesky-avatar-size: 32px;
+		.reddit-theme::part(avatar) {
+			display: none;
 		}
 
-		/* System Dark Mode Override */
-		@media (prefers-color-scheme: dark) {
-			.default-theme {
-				--bluesky-bg-color: #1e293b;
-				--bluesky-text-color: #e2e8f0;
-				--bluesky-border-color: #4a5568;
-				--bluesky-hover-bg: #2d3748;
-				--bluesky-primary-color: #60a5fa;
-				--bluesky-handle-color: #9ca3af;
-				--bluesky-reply-border-color: #4a5568;
-				--bluesky-comment-border-color: #4a5568;
+		.reddit-theme::part(comment-header) {
+			font-size: 12px;
+			padding: 2px 0;
+			margin-bottom: 2px;
+		}
 
-			}
+		.reddit-theme::part(comment-content) {
+			line-height: 1.5;
+			padding: 4px 0;
+		}
+
+		.reddit-theme::part(comment-footer) {
+			opacity: 0.8;
+			font-size: 11px;
+			padding: 4px 0;
+		}
+
+		/* Hacker News Theme */
+		.hackernews-theme {
+			--bluesky-bg-color: #f6f6ef;
+			--bluesky-font-family: Verdana, Geneva, sans-serif;
+			--bluesky-font-size: 13.5px;
+			--bluesky-text-color: #000000;
+			--bluesky-handle-color: #828282;
+			--bluesky-footer-text-color: #828282;
+			--bluesky-border-color: transparent;
+			--bluesky-hover-bg: #f6f6ef;
+			--bluesky-spacing-xs: 2px;
+			--bluesky-spacing-sm: 4px;
+			--bluesky-spacing-md: 6px;
+			--bluesky-footer-font-size: 10px;
+			--bluesky-icon-size: 12px;
+			--bluesky-avatar-size: 0px;
+			--bluesky-reply-border-width: 1px;
+			--bluesky-reply-border-color: #e6e6df;
+		}
+
+		.hackernews-theme::part(avatar) {
+			display: none;
+		}
+
+		.hackernews-theme::part(comment-header) {
+			font-size: 10.5px;
+			color: #828282;
+			margin-bottom: 4px;
+		}
+
+		.hackernews-theme::part(comment-content) {
+			line-height: 1.4;
+			margin-left: 4px;
+		}
+
+		.hackernews-theme::part(comment-footer) {
+			font-size: 10px;
+			padding: 2px 0;
+			opacity: 0.8;
+			margin-left: 4px;
+		}
+
+		/* Magazine Theme */
+		.magazine-theme {
+			--bluesky-bg-color: #fffef9;
+			--bluesky-font-family: Georgia, 'Times New Roman', serif;
+			--bluesky-font-size: 16px;
+			--bluesky-text-color: #2d3436;
+			--bluesky-handle-color: #636e72;
+			--bluesky-footer-text-color: #b2bec3;
+			--bluesky-border-color: #dfe6e9;
+			--bluesky-hover-bg: #f5f6fa;
+			--bluesky-spacing-xs: 8px;
+			--bluesky-spacing-sm: 12px;
+			--bluesky-spacing-md: 20px;
+			--bluesky-avatar-size: 48px;
+			--bluesky-avatar-bg: #dfe6e9;
+			--bluesky-reply-border-width: 1px;
+			--bluesky-footer-font-size: 14px;
+			--bluesky-icon-size: 18px;
+		}
+
+		.magazine-theme::part(comment-content) {
+			line-height: 1.7;
+			letter-spacing: 0.2px;
+		}
+
+		.magazine-theme::part(avatar) {
+			border-radius: 8px;
 		}
 
 		.theme-toggle {
@@ -193,42 +298,24 @@
 
 		<div class="theme-toggle">
 			<select id="themeSelector" onchange="changeTheme(this.value)">
-				<option value="default-theme">Default Theme</option>
-				<option value="modern-theme">Modern Theme</option>
-				<option value="minimal-theme">Minimal Theme</option>
+				<option value="modern-blog-theme">Modern Blog Theme</option>
+				<option value="documentation-theme">Documentation Theme</option>
 				<option value="dark-theme">Dark Theme</option>
-				<option value="compact-theme">Compact Theme</option>
-				<option value="brand-theme">Brand Theme (GitHub-inspired)</option>
+				<option value="reddit-theme">Reddit Style Theme</option>
+				<option value="magazine-theme">Magazine Theme</option>
+				<option value="hackernews-theme">Hacker News Theme</option>
 			</select>
 		</div>
 
 		<div class="demo-section">
-			<bluesky-comments id="commentsComponent" class="default-theme"
+			<bluesky-comments id="commentsComponent" class="modern-blog-theme"
 				url="https://bsky.app/profile/mk.gg/post/3lb7dimbih224">
 			</bluesky-comments>
 		</div>
 
 		<h2>Theme CSS</h2>
 		<div class="code-preview">
-			<pre><code class="language-css" id="themeCode">
-/* Default Theme */
-.default-theme {
-
-}
-
-/* System Dark Mode Override */
-@media (prefers-color-scheme: dark) {
-    .default-theme {
-        --bluesky-bg-color: #1e293b;
-        --bluesky-text-color: #e2e8f0;
-        --bluesky-border-color: #4a5568;
-        --bluesky-reply-border-color: #4a5568;
-        --bluesky-hover-bg: #2d3748;
-        --bluesky-primary-color: #60a5fa;
-        --bluesky-handle-color: #9ca3af;
-    }
-}
-            </code></pre>
+			<pre><code class="language-css" id="themeCode"></code></pre>
 		</div>
 	</div>
 
@@ -239,86 +326,194 @@
 	<script>
 		// Theme definitions
 		const themes = {
-			"default-theme": `/* Default Theme */
-.default-theme {
-    --bluesky-bg-color: white;
-    --bluesky-primary-color: rgb(111, 134, 159);
+			"modern-blog-theme": `/* Modern Blog Theme */
+.modern-blog-theme {
+    --bluesky-bg-color: #ffffff;
+    --bluesky-font-family: 'Inter', system-ui, sans-serif;
+    --bluesky-font-size: 15px;
+    --bluesky-text-color: #1a2b3c;
+    --bluesky-handle-color: #64748b;
+    --bluesky-footer-text-color: #94a3b8;
     --bluesky-border-color: #e2e8f0;
-    --bluesky-hover-bg: #f7fafc;
+    --bluesky-hover-bg: #f8fafc;
+    --bluesky-spacing-xs: 8px;
+    --bluesky-spacing-sm: 12px;
+    --bluesky-spacing-md: 16px;
+    --bluesky-avatar-size: 40px;
+    --bluesky-avatar-bg: #f1f5f9;
+    --bluesky-reply-border-width: 2px;
+    --bluesky-footer-font-size: 13px;
+    --bluesky-icon-size: 16px;
 }
 
-/* System Dark Mode Override */
-@media (prefers-color-scheme: dark) {
-    .default-theme {
-        --bluesky-bg-color: #1e293b;
-        --bluesky-text-color: #e2e8f0;
-        --bluesky-border-color: #4a5568;
-        --bluesky-hover-bg: #2d3748;
-        --bluesky-primary-color: #60a5fa;
-        --bluesky-handle-color: #9ca3af;
-    }
+.modern-blog-theme::part(avatar) {
+    border: 2px solid #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.modern-blog-theme::part(comment-content) {
+    line-height: 1.6;
 }`,
-			"modern-theme": `/* Modern Theme */
-.modern-theme {
-    --bluesky-bg-color: #ffffff;
-    --bluesky-font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
-    --bluesky-primary-color: #3b82f6;
-    --bluesky-border-color: #e5e7eb;
-    --bluesky-hover-bg: #f8fafc;
-    --bluesky-spacing-md: 16px;
-    --bluesky-avatar-size: 36px;
-    --bluesky-reply-border-width: 3px;
-    --bluesky-reply-border-color: #e5e7eb;
-}`,
-			"minimal-theme": `/* Minimal Theme */
-.minimal-theme {
-    --bluesky-bg-color: #fafafa;
-    --bluesky-primary-color: #64748b;
-    --bluesky-border-color: transparent;
-    --bluesky-hover-bg: #f8fafc;
-    --bluesky-spacing-xs: 4px;
-    --bluesky-spacing-sm: 6px;
-    --bluesky-spacing-md: 8px;
-    --bluesky-avatar-size: 28px;
+			"documentation-theme": `/* Documentation Theme */
+.documentation-theme {
+    --bluesky-bg-color: #fcfcfc;
+    --bluesky-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --bluesky-font-size: 14px;
+    --bluesky-text-color: #2c3e50;
+    --bluesky-handle-color: #718096;
+    --bluesky-footer-text-color: #a0aec0;
+    --bluesky-border-color: #edf2f7;
+    --bluesky-hover-bg: #f7fafc;
+    --bluesky-spacing-xs: 6px;
+    --bluesky-spacing-sm: 10px;
+    --bluesky-spacing-md: 12px;
+    --bluesky-avatar-size: 32px;
+    --bluesky-avatar-bg: #edf2f7;
     --bluesky-reply-border-width: 1px;
-    --bluesky-reply-border-color: #e2e8f0;
+    --bluesky-footer-font-size: 12px;
+    --bluesky-icon-size: 14px;
+}
+
+.documentation-theme::part(comment-header) {
+    padding: 8px 12px;
+    background: #f8fafc;
+    border-radius: 4px 4px 0 0;
 }`,
 			"dark-theme": `/* Dark Theme */
 .dark-theme {
-    --bluesky-bg-color: #1e293b;
-    --bluesky-text-color: #e2e8f0;
-    --bluesky-border-color: #4a5568;
-    --bluesky-hover-bg: #2d3748;
-    --bluesky-primary-color: #60a5fa;
-    --bluesky-handle-color: #9ca3af;
-    --bluesky-comment-border-color: #4a5568;
-    --bluesky-reply-border-color: #4b5563;
-    --bluesky-avatar-border-color: #4a5568;
+    --bluesky-bg-color: #1e1e2e;
+    --bluesky-font-family: system-ui, sans-serif;
+    --bluesky-font-size: 14px;
+    --bluesky-text-color: #cdd6f4;
+    --bluesky-handle-color: #a6adc8;
+    --bluesky-footer-text-color: #7f849c;
+    --bluesky-border-color: #313244;
+    --bluesky-hover-bg: #181825;
+    --bluesky-spacing-xs: 6px;
+    --bluesky-spacing-sm: 10px;
+    --bluesky-spacing-md: 14px;
+    --bluesky-avatar-size: 36px;
+    --bluesky-avatar-bg: #313244;
+    --bluesky-reply-border-width: 1px;
+    --bluesky-footer-font-size: 13px;
+    --bluesky-icon-size: 16px;
+}
+.dark-theme::part(comment-header) {
+    background: rgba(49, 50, 68, 0.5);
+}
+
+.dark-theme::part(avatar) {
+    border: 1px solid #45475a;
 }`,
-			"compact-theme": `/* Compact Theme */
-.compact-theme {
-    --bluesky-bg-color: white;
+			"reddit-theme": `/* Reddit Style Theme */
+.reddit-theme {
+    --bluesky-bg-color: #ffffff;
+    --bluesky-font-family: Verdana, arial, helvetica, sans-serif;
+    --bluesky-font-size: 13px;
+    --bluesky-text-color: #1c1c1c;
+    --bluesky-handle-color: #787c7e;
+    --bluesky-footer-text-color: #787c7e;
+    --bluesky-border-color: #edeff1;
+    --bluesky-hover-bg: #f6f7f8;
     --bluesky-spacing-xs: 4px;
     --bluesky-spacing-sm: 6px;
     --bluesky-spacing-md: 8px;
-    --bluesky-avatar-size: 20px;
     --bluesky-footer-font-size: 12px;
-    --bluesky-icon-size: 14px;
+    --bluesky-icon-size: 16px;
+    --bluesky-avatar-size: 0px;
     --bluesky-reply-border-width: 1px;
+    --bluesky-reply-border-color: #edeff1;
+}
+
+.reddit-theme::part(avatar) {
+    display: none;
+}
+
+.reddit-theme::part(comment-header) {
+    font-size: 12px;
+    padding: 2px 0;
+    margin-bottom: 2px;
+}
+
+.reddit-theme::part(comment-content) {
+    line-height: 1.5;
+    padding: 4px 0;
+}
+
+.reddit-theme::part(comment-footer) {
+    opacity: 0.8;
+    font-size: 11px;
+    padding: 4px 0;
 }`,
-			"brand-theme": `/* Brand Theme (GitHub-inspired) */
-.brand-theme {
-    --bluesky-bg-color: #f6f8fa;
-    --bluesky-primary-color: #2da44e;
-    --bluesky-border-color: #d0d7de;
-    --bluesky-hover-bg: #f6f8fa;
-    --bluesky-text-color: #1F2328;
-    --bluesky-handle-color: #656d76;
-    --bluesky-reply-border-color: #d8dee4;
-    --bluesky-avatar-border-color: #d0d7de;
-    --bluesky-spacing-md: 16px;
-    --bluesky-avatar-size: 32px;
+			"hackernews-theme": `/* Hacker News Theme */
+.hackernews-theme {
+    --bluesky-bg-color: #f6f6ef;
+    --bluesky-font-family: Verdana, Geneva, sans-serif;
+    --bluesky-font-size: 13.5px;
+    --bluesky-text-color: #000000;
+    --bluesky-handle-color: #828282;
+    --bluesky-footer-text-color: #828282;
+    --bluesky-border-color: transparent;
+    --bluesky-hover-bg: #f6f6ef;
+    --bluesky-spacing-xs: 2px;
+    --bluesky-spacing-sm: 4px;
+    --bluesky-spacing-md: 6px;
+    --bluesky-footer-font-size: 10px;
+    --bluesky-icon-size: 12px;
+    --bluesky-avatar-size: 0px;
+    --bluesky-reply-border-width: 1px;
+    --bluesky-reply-border-color: #e6e6df;
+}
+
+.hackernews-theme::part(avatar) {
+    display: none;
+}
+
+.hackernews-theme::part(comment-header) {
+    font-size: 10.5px;
+    color: #828282;
+    margin-bottom: 4px;
+}
+
+.hackernews-theme::part(comment-content) {
+    line-height: 1.4;
+    margin-left: 4px;
+}
+
+.hackernews-theme::part(comment-footer) {
+    font-size: 10px;
+    padding: 2px 0;
+    opacity: 0.8;
+    margin-left: 4px;
 }`,
+			"magazine-theme": `/* Magazine Theme */
+.magazine-theme {
+    --bluesky-bg-color: #fffef9;
+    --bluesky-font-family: Georgia, 'Times New Roman', serif;
+    --bluesky-font-size: 16px;
+    --bluesky-text-color: #2d3436;
+    --bluesky-handle-color: #636e72;
+    --bluesky-footer-text-color: #b2bec3;
+    --bluesky-border-color: #dfe6e9;
+    --bluesky-hover-bg: #f5f6fa;
+    --bluesky-spacing-xs: 8px;
+    --bluesky-spacing-sm: 12px;
+    --bluesky-spacing-md: 20px;
+    --bluesky-avatar-size: 48px;
+    --bluesky-avatar-bg: #dfe6e9;
+    --bluesky-reply-border-width: 1px;
+    --bluesky-footer-font-size: 14px;
+    --bluesky-icon-size: 18px;
+}
+
+.magazine-theme::part(comment-content) {
+    line-height: 1.7;
+    letter-spacing: 0.2px;
+}
+
+.magazine-theme::part(avatar) {
+    border-radius: 8px;
+}`
 		};
 
 		function changeTheme(themeName) {
@@ -330,6 +525,13 @@
 			codeElement.textContent = themes[themeName];
 			Prism.highlightElement(codeElement);
 		}
+
+		// Set initial theme code
+		document.addEventListener('DOMContentLoaded', () => {
+			const codeElement = document.getElementById("themeCode");
+			codeElement.textContent = themes["modern-blog-theme"];
+			Prism.highlightElement(codeElement);
+		});
 	</script>
 </body>
 

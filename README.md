@@ -1,6 +1,6 @@
 # Bluesky Comments Tag
 
-A lightweight, customizable web component for using Bluesky comment for your website comments. The component lazy loads comments when they enter the viewport and supports extensive styling customization.
+A lightweight, customizable web component to use Bluesky for your website comments.
 
 ## Features
 
@@ -12,7 +12,7 @@ A lightweight, customizable web component for using Bluesky comment for your web
 
 ## Usage
 
-You can load the component from a CDN and then use it directly:
+Load the script from a CDN and then use the tag in your HTML:
 
 ```html
 <!-- Use the element -->
@@ -24,30 +24,14 @@ You can load the component from a CDN and then use it directly:
 </script>
 ```
 
-### Framework usage
-
-If your framework supports web components, you can install the package and use it directly:
-
-```astro
----
-// index.astro
-import { Layout } from '../components/Layout.astro'
----
-<Layout>
-  <bluesky-comments url="https://bsky.app/profile/mk.gg/post/3lb3cxyeh3c2f"
-  ></bluesky-comments>
-</Layout>
-<script>
-  import "bluesky-comments-tag/load";
-</script>
-```
-
 ## Styling
 
 The component can be customized in two ways:
 
 1. Using CSS Custom Properties (variables)
 2. Using Shadow Parts for direct styling of internal elements
+
+[Try the theme playground](https://bluesky-comments.netlify.app/theme)
 
 ### Basic Styling Example
 
