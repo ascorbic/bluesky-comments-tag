@@ -24,6 +24,24 @@ You can load the component from a CDN and then use it directly:
 </script>
 ```
 
+### Framework usage
+
+If your framework supports web components, you can install the package and use it directly:
+
+```astro
+---
+// index.astro
+import { Layout } from '../components/Layout.astro'
+---
+<Layout>
+  <bluesky-comments url="https://bsky.app/profile/mk.gg/post/3lb3cxyeh3c2f"
+  ></bluesky-comments>
+</Layout>
+<script>
+  import "bluesky-comments-tag/load";
+</script>
+```
+
 ## Styling
 
 The component can be customized in two ways:
@@ -282,6 +300,10 @@ bluesky-comments::part(avatar) {
   border-radius: 8px;
 }
 ```
+
+## Troubleshooting
+
+Did you get "HTMLElement is not defined" error? Make sure you are loading the component in the browser, not in SSR or Node.js. This is a client-only component.
 
 ## Browser Support
 
