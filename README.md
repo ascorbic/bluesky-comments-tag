@@ -107,7 +107,7 @@ Available parts:
 | Property                     | Default             | Description               |
 | ---------------------------- | ------------------- | ------------------------- |
 | --bluesky-font-family        | -apple-system, etc. | Font family for all text  |
-| --bluesky-font-size          | 14px                | Base font size            |
+| --bluesky-font-size          | 16px                | Base font size            |
 | --bluesky-text-color         | #333                | Main text color           |
 | --bluesky-handle-color       | #888                | Username/handle color     |
 | --bluesky-footer-text-color  | rgb(111, 134, 159)  | Footer text color         |
@@ -117,10 +117,11 @@ Available parts:
 | --bluesky-spacing-xs         | 5px                 | Extra small spacing       |
 | --bluesky-spacing-sm         | 8px                 | Small spacing             |
 | --bluesky-spacing-md         | 10px                | Medium spacing            |
+| --bluesky-spacing-lg         | 15px                | Large spacing             |
 | --bluesky-avatar-size        | 24px                | Size of avatar images     |
 | --bluesky-avatar-bg          | #e0e0e0             | Default avatar background |
 | --bluesky-reply-border-width | 2px                 | Reply border width        |
-| --bluesky-footer-font-size   | 14px                | Footer text size          |
+| --bluesky-footer-font-size   | 15px                | Footer text size          |
 | --bluesky-icon-size          | 18px                | Size of footer icons      |
 
 ## Theme Examples
