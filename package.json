@@ -13,8 +13,8 @@
 	"license": "MIT",
 	"devDependencies": {
 		"@changesets/cli": "^2.27.10",
-		"@types/node": "^22.9.3",
-		"prettier": "^3.3.3",
+		"@types/node": "^22.10.0",
+		"prettier": "^3.4.0",
 		"vitest": "^2.1.5"
 	},
 	"packageManager": "pnpm@9.14.2"
