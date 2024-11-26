@@ -5,59 +5,23 @@ A lightweight, customizable web component for using Bluesky comment for your web
 ## Features
 
 - ⚡ Lightweight with no framework or dependencies
-- 🌐 Use with any framework, or directly in HTML
+- 🌐 Use directly in HTML - no bundler or installer needed
 - 🔒 Isolated styles with Shadow DOM
 - 🎨 Highly customizable with CSS variables and Shadow Parts
 - 🎯 Lazy loading - only loads comments when visible
 
-## Installation
+## Usage
 
-### Directly in HTML
+You can load the component from a CDN and then use it directly:
 
 ```html
+<!-- Use the element -->
+<bluesky-comments url="https://bsky.app/profile/mk.gg/post/3lb3cxyeh3c2f">
+</bluesky-comments>
+<!-- Include the script tag anywhere -->
 <script type="module">
   import "https://esm.sh/bluesky-comments-tag/load";
 </script>
-```
-
-### Using npm with a build tool
-
-```bash
-npm install bluesky-comments-tag
-```
-
-Then import in your JavaScript/TypeScript file:
-
-```javascript
-import "bluesky-comments-tag/load";
-```
-
-## Usage
-
-Once imported, you can use the custom element anywhere in your HTML:
-
-```html
-<bluesky-comments url="https://bsky.app/profile/mk.gg/post/3lb3cxyeh3c2f">
-</bluesky-comments>
-```
-
-### Example with Astro
-
-```html
-  <head>
-    <title>My Bluesky Comments</title>
-  </head>
-  <body>
-   <h1>My Blog Post</h1>
-   <p>Bluesky is so cool!</p>
-	<p><a href="https://bsky.app/profile/mk.gg/post/3lb3cxyeh3c2f">Comment on Bluesky</a></p>
-    <bluesky-comments url="https://bsky.app/profile/mk.gg/post/3lb3cxyeh3c2f">
-    </bluesky-comments>
-    <script>
-      import 'bluesky-comments-tag/load';
-    </script>
-  </body>
-</html>
 ```
 
 ## Styling
@@ -156,43 +120,6 @@ Available parts:
 | --bluesky-reply-border-width | 2px                 | Reply border width        |
 | --bluesky-footer-font-size   | 14px                | Footer text size          |
 | --bluesky-icon-size          | 18px                | Size of footer icons      |
-
-## Framework Examples
-
-### React
-
-```jsx
-import { useEffect } from "react";
-import "bluesky-comments-tag/load";
-
-function BlogPost() {
-  return (
-    <bluesky-comments url="https://bsky.app/profile/USERNAME/post/POST_ID" />
-  );
-}
-```
-
-### Vue
-
-```vue
-<script setup>
-import "bluesky-comments-tag/load";
-</script>
-
-<template>
-  <bluesky-comments url="https://bsky.app/profile/USERNAME/post/POST_ID" />
-</template>
-```
-
-### Svelte
-
-```svelte
-<script>
-  import 'bluesky-comments-tag/load';
-</script>
-
-<bluesky-comments url="https://bsky.app/profile/USERNAME/post/POST_ID" />
-```
 
 ## Theme Examples
 
