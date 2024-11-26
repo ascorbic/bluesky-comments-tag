@@ -13,32 +13,32 @@ export class BlueskyComments extends HTMLElement {
   <style>
 	:host {
 	  --bluesky-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-	  --bluesky-text-color: #333;
+	  --bluesky-font-size: 14px;
+		--bluesky-text-color: #333;
 	  --bluesky-handle-color: #888;
-	  --bluesky-primary-color: rgb(111, 134, 159);
-	  --bluesky-border-color: #ccc;
+	  --bluesky-footer-text-color: rgb(111, 134, 159);
 		--bluesky-bg-color: #fff;
 	  --bluesky-hover-bg: #f0f0f0;
 	  --bluesky-spacing-xs: 5px;
 	  --bluesky-spacing-sm: 8px;
 	  --bluesky-spacing-md: 10px;
 	  --bluesky-avatar-size: 24px;
-	  --bluesky-avatar-border-color: #ddd;
 	  --bluesky-avatar-bg: #e0e0e0;
 
 	  /* Comments Structure */
-	  --bluesky-comment-border-color: #eee;
-	  --bluesky-reply-border-color: #e0e0e0;
 	  --bluesky-reply-border-width: 2px;
 
 	  /* Footer */
 	  --bluesky-footer-font-size: 14px;
 	  --bluesky-icon-size: 18px;
+	  --bluesky-border-color: #e0e0e0;
+
 	}
 
 	/* Container Styles */
 	.comments {
 	  font-family: var(--bluesky-font-family);
+		font-size: var(--bluesky-font-size);
 		background-color: var(--bluesky-bg-color);
 	  border: 1px solid var(--bluesky-border-color);
 	  padding: var(--bluesky-spacing-md) 0;
@@ -47,12 +47,12 @@ export class BlueskyComments extends HTMLElement {
 
 	/* Comment Structure */
 	.comment {
-	  border-bottom: 1px solid var(--bluesky-comment-border-color);
+	  border-bottom: 1px solid var(--bluesky-border-color);
 	  padding-top: var(--bluesky-spacing-xs);
 	}
 
 	.comment.reply {
-	  border-left: var(--bluesky-reply-border-width) solid var(--bluesky-reply-border-color);
+	  border-left: var(--bluesky-reply-border-width) solid var(--bluesky-border-color);
 	  margin-left: var(--bluesky-spacing-md);
 	}
 
@@ -65,7 +65,7 @@ export class BlueskyComments extends HTMLElement {
 	  height: var(--bluesky-avatar-size);
 	  border-radius: 50%;
 	  object-fit: cover;
-	  border: 2px solid var(--bluesky-avatar-border-color);
+	  border: 1px solid var(--bluesky-border-color);
 	}
 
 	.default-avatar {
@@ -82,17 +82,14 @@ export class BlueskyComments extends HTMLElement {
 	  padding-left: var(--bluesky-spacing-sm);
 	}
 
-	.comment-content {
-	  margin-top: var(--bluesky-spacing-xs);
-	}
 
 	.comment-footer {
 	  display: flex;
 	  justify-content: space-between;
 	  align-items: center;
-	  margin-bottom: var(--bluesky-spacing-md);
+	  margin-bottom: var(--bluesky-spacing-xs);
 	  font-size: var(--bluesky-footer-font-size);
-	  color: var(--bluesky-primary-color);
+	  color: var(--bluesky-footer-text-color);
 	  padding: var(--bluesky-spacing-xs);
 	}
 
@@ -112,19 +109,23 @@ export class BlueskyComments extends HTMLElement {
 
 	.profile-link {
 	  color: var(--bluesky-text-color);
+		font-weight: 600;
 	  text-decoration: none;
 	}
 
-	.timestamp-link {
+	.timestamp-link,
+	.handle-link {
 	  color: var(--bluesky-handle-color);
 	  text-decoration: none;
 	}
 
 	.comment-link:hover,
-	.profile-link:hover,
-	.timestamp-link:hover,
 	.comment-footer:hover {
 	  background-color: var(--bluesky-hover-bg);
+	}
+
+	.profile-link:hover {
+		text-decoration: underline;
 	}
 
 	.handle {
@@ -134,7 +135,7 @@ export class BlueskyComments extends HTMLElement {
 	.comment-footer svg {
 	  width: var(--bluesky-icon-size);
 	  height: var(--bluesky-icon-size);
-	  color: var(--bluesky-primary-color);
+	  color: var(--bluesky-footer-text-color);
 	}
   </style>
   <div class="comments"></div>
@@ -279,6 +280,12 @@ export class BlueskyComments extends HTMLElement {
     }
   }
 
+  #sanitizeText(text) {
+    const div = document.createElement("div");
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
   #displayComments(thread, container, isReply = false) {
     if (thread?.post?.author && thread.post.record) {
       if (thread.post.record.text.trim() === "📌") {
@@ -310,25 +317,25 @@ export class BlueskyComments extends HTMLElement {
 
       let avatarElement;
       if (avatarUrl) {
-        avatarElement = `<img src="${avatarUrl}" alt="${authorHandle}'s avatar" class="avatar" />`;
+        avatarElement = `<img src="${avatarUrl}" alt="${authorHandle}'s avatar" class="avatar" part="avatar"/>`;
       } else {
-        avatarElement = `<div class="default-avatar"></div>`;
+        avatarElement = `<div class="default-avatar" part="avatar"></div>`;
       }
       commentDiv.innerHTML = `
-        <div class="comment-header">
+        <div class="comment-header" part="comment-header">
           ${avatarElement}
           <div>
-            <strong><a href="${authorProfileUrl}" target="_blank" class="profile-link">${displayName}</a></strong>
-            <span class="handle"><a href="${authorProfileUrl}" target="_blank" class="profile-link">@${authorHandle}</a></span> -
-            <a href="${postUrl}" target="_blank" title="${createdAtFull}" class="timestamp-link">${createdAtAbbreviated}</a>
+            <a href="${authorProfileUrl}" target="_blank" class="profile-link">${this.#sanitizeText(displayName)}</a>
+            <span class="handle"><a href="${authorProfileUrl}" target="_blank" class="handle-link">@${this.#sanitizeText(authorHandle)}</a></span> -
+            <a href="${postUrl}" target="_blank" rel="ugc" title="${createdAtFull}" class="timestamp-link">${createdAtAbbreviated}</a>
           </div>
         </div>
-        <div class="comment-body">
-          <a href="${postUrl}" target="_blank" class="comment-link">
-            <div class="comment-content">
-              <p></p>
+        <div class="comment-body" part="comment-body">
+          <a href="${postUrl}" target="_blank" rel="nofollow noopener" class="comment-link">
+            <div class="comment-content" part="comment-content">
+              <p>${this.#sanitizeText(thread.post.record.text)}</p>
             </div>
-            <div class="comment-footer">
+            <div class="comment-footer" part="comment-footer">
               <div>
                 <svg viewBox="0 0 24 24">
                   <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M2.002 6a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H12.28l-4.762 2.858A1 1 0 0 1 6.002 21v-2h-1a3 3 0 0 1-3-3V6Zm3-1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h2a1 1 0 0 1 1 1v1.234l3.486-2.092a1 1 0 0 1 .514-.142h7a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-14Z"></path>
@@ -351,8 +358,7 @@ export class BlueskyComments extends HTMLElement {
           </a>
         </div>
       `;
-      commentDiv.querySelector(".comment-content p").textContent =
-        thread.post.record.text;
+
       container.appendChild(commentDiv);
 
       if (thread.replies && thread.replies.length > 0) {
