@@ -219,6 +219,11 @@
 			display: none;
 		}
 
+		a:link,
+		a:visited {
+			color: inherit;
+		}
+
 		.hackernews-theme::part(comment-header) {
 			font-size: 10.5px;
 			color: #828282;
@@ -306,14 +311,14 @@
 				<option value="hackernews-theme">Hacker News Theme</option>
 			</select>
 		</div>
-
+		<p><a href="#css">Scroll down for the CSS for each theme</a></p>
 		<div class="demo-section">
 			<bluesky-comments id="commentsComponent" class="modern-blog-theme"
-				url="https://bsky.app/profile/mk.gg/post/3lb7dimbih224">
+				url="https://bsky.app/profile/mk.gg/post/3lbtkg6m7ys2v">
 			</bluesky-comments>
 		</div>
 
-		<h2>Theme CSS</h2>
+		<h2><a name="css"></a>Theme CSS</h2>
 		<div class="code-preview">
 			<pre><code class="language-css" id="themeCode"></code></pre>
 		</div>
