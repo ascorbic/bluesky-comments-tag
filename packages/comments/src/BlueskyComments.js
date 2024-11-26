@@ -13,7 +13,7 @@ export class BlueskyComments extends HTMLElement {
   <style>
 	:host {
 	  --bluesky-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-	  --bluesky-font-size: 14px;
+	  --bluesky-font-size: 16px;
 		--bluesky-text-color: #333;
 	  --bluesky-handle-color: #888;
 	  --bluesky-footer-text-color: rgb(111, 134, 159);
@@ -22,6 +22,7 @@ export class BlueskyComments extends HTMLElement {
 	  --bluesky-spacing-xs: 5px;
 	  --bluesky-spacing-sm: 8px;
 	  --bluesky-spacing-md: 10px;
+	  --bluesky-spacing-lg: 15px;
 	  --bluesky-avatar-size: 24px;
 	  --bluesky-avatar-bg: #e0e0e0;
 
@@ -29,7 +30,7 @@ export class BlueskyComments extends HTMLElement {
 	  --bluesky-reply-border-width: 2px;
 
 	  /* Footer */
-	  --bluesky-footer-font-size: 14px;
+	  --bluesky-footer-font-size: 15px;
 	  --bluesky-icon-size: 18px;
 	  --bluesky-border-color: #e0e0e0;
 
@@ -41,24 +42,28 @@ export class BlueskyComments extends HTMLElement {
 		font-size: var(--bluesky-font-size);
 		background-color: var(--bluesky-bg-color);
 	  border: 1px solid var(--bluesky-border-color);
-	  padding: var(--bluesky-spacing-md) 0;
 	  color: var(--bluesky-text-color);
 	}
 
 	/* Comment Structure */
 	.comment {
 	  border-bottom: 1px solid var(--bluesky-border-color);
-	  padding-top: var(--bluesky-spacing-xs);
+	  padding-top: var(--bluesky-spacing-lg);
 	}
 
 	.comment.reply {
 	  border-left: var(--bluesky-reply-border-width) solid var(--bluesky-border-color);
-	  margin-left: var(--bluesky-spacing-md);
+	  margin-left: var(--bluesky-spacing-lg);
+    padding-top: var(--bluesky-spacing-xs);
 	}
 
 	.comment:last-child {
 	  border-bottom: none;
 	}
+
+  .comment-content {
+    padding: var(--bluesky-spacing-xs) 0;
+  }
 
 	.avatar {
 	  width: var(--bluesky-avatar-size);
@@ -79,7 +84,7 @@ export class BlueskyComments extends HTMLElement {
 	  display: flex;
 	  align-items: center;
 	  gap: var(--bluesky-spacing-md);
-	  padding-left: var(--bluesky-spacing-sm);
+	  padding: 0 var(--bluesky-spacing-lg);
 	}
 
 
@@ -104,7 +109,7 @@ export class BlueskyComments extends HTMLElement {
 	  flex-direction: column;
 	  color: inherit;
 	  text-decoration: none;
-	  padding: 0 var(--bluesky-spacing-sm);
+	  padding: 0 var(--bluesky-spacing-lg);
 	}
 
 	.profile-link {
@@ -333,7 +338,7 @@ export class BlueskyComments extends HTMLElement {
         <div class="comment-body" part="comment-body">
           <a href="${postUrl}" target="_blank" rel="nofollow noopener" class="comment-link">
             <div class="comment-content" part="comment-content">
-              <p>${this.#sanitizeText(thread.post.record.text)}</p>
+              ${this.#sanitizeText(thread.post.record.text)}
             </div>
             <div class="comment-footer" part="comment-footer">
               <div>
