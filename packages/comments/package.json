@@ -21,7 +21,7 @@
 		"test": "vitest"
 	},
 	"devDependencies": {
-		"@custom-elements-manifest/analyzer": "^0.10.3",
+		"@custom-elements-manifest/analyzer": "^0.10.4",
 		"publint": "^0.2.12"
 	},
 	"repository": {
