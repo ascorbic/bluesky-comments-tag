@@ -311,7 +311,7 @@ export class BlueskyComments extends HTMLElement {
       const createdAt = new Date(thread.post.record.createdAt);
       const createdAtFull = createdAt.toLocaleString();
       const createdAtAbbreviated = this.#getAbbreviatedTime(createdAt);
-      const avatarUrl = thread.post?.author?.avatar.replace(
+      const avatarUrl = thread.post?.author?.avatar?.replace(
         "/img/avatar/",
         "/img/avatar_thumbnail/",
       );
