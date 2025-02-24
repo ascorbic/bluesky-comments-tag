@@ -6,6 +6,7 @@ export class BlueskyComments extends HTMLElement {
 
   #observer;
   #loaded = false;
+  #hiddenReplies = new Set();
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
@@ -175,8 +176,9 @@ export class BlueskyComments extends HTMLElement {
         if (!atUri) {
           throw new Error("Failed to resolve AT URI");
         }
-        const replies = await this.#fetchReplies(atUri);
-        this.#displayReplies(replies);
+        const { thread, threadgate } = await this.#fetchReplies(atUri);
+        this.#hiddenReplies = new Set(threadgate?.record?.hiddenReplies || []);
+        this.#displayReplies(thread);
       } catch (e) {
         this.shadowRoot.querySelector(".comments").innerHTML =
           `<p>Error loading comments.</p>`;
@@ -265,8 +267,7 @@ export class BlueskyComments extends HTMLElement {
     if (!response.ok) {
       throw new Error("Failed to fetch replies");
     }
-    const data = await response.json();
-    return data.thread;
+    return response.json();
   }
 
   #displayReplies(thread, container = null) {
@@ -293,7 +294,11 @@ export class BlueskyComments extends HTMLElement {
 
   #displayComments(thread, container, isReply = false) {
     if (thread?.post?.author && thread.post.record) {
-      if (thread.post.record.text.trim() === "📌") {
+      // Skip if the post is hidden by the original poster or if it's just a pin emoji
+      if (
+        thread.post.record.text.trim() === "📌" ||
+        this.#hiddenReplies.has(thread.post.uri)
+      ) {
         return;
       }
 
