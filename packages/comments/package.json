@@ -22,7 +22,7 @@
 	},
 	"devDependencies": {
 		"@custom-elements-manifest/analyzer": "^0.10.4",
-		"publint": "^0.3.8"
+		"publint": "^0.3.9"
 	},
 	"repository": {
 		"type": "git",
