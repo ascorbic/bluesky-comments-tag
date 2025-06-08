@@ -14,9 +14,9 @@
 	"devDependencies": {
 		"@changesets/changelog-github": "^0.5.1",
 		"@changesets/cli": "^2.29.4",
-		"@types/node": "^22.15.29",
+		"@types/node": "^22.15.30",
 		"prettier": "^3.5.3",
-		"vitest": "^3.2.1"
+		"vitest": "^3.2.2"
 	},
 	"packageManager": "pnpm@10.11.1"
 }
