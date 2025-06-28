@@ -15,8 +15,8 @@
 		"@changesets/changelog-github": "^0.5.1",
 		"@changesets/cli": "^2.29.5",
 		"@types/node": "^22.15.33",
-		"prettier": "^3.6.1",
+		"prettier": "^3.6.2",
 		"vitest": "^3.2.4"
 	},
-	"packageManager": "pnpm@10.12.3"
+	"packageManager": "pnpm@10.12.4"
 }
