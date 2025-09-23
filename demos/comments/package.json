@@ -10,8 +10,8 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/mdx": "4.3.5",
-		"astro": "^5.13.9",
+		"@astrojs/mdx": "4.3.6",
+		"astro": "^5.13.10",
 		"bluesky-comments-tag": "workspace:^"
 	}
 }
