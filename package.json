@@ -16,7 +16,7 @@
 		"@changesets/cli": "^2.29.7",
 		"@types/node": "^24.10.1",
 		"prettier": "^3.6.2",
-		"vitest": "^3.2.4"
+		"vitest": "^4.0.8"
 	},
 	"packageManager": "pnpm@10.20.0"
 }
