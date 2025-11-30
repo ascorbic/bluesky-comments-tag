@@ -11,7 +11,7 @@
 	},
 	"dependencies": {
 		"@astrojs/mdx": "4.3.12",
-		"astro": "^5.16.0",
+		"astro": "^5.16.3",
 		"bluesky-comments-tag": "workspace:^"
 	}
 }
