@@ -28,10 +28,10 @@ importers:
     dependencies:
       '@astrojs/mdx':
         specifier: 4.3.13
-        version: 4.3.13(astro@5.16.14(@types/node@24.10.9)(jiti@2.4.2)(rollup@4.40.1)(typescript@5.7.2))
+        version: 4.3.13(astro@5.16.15(@types/node@24.10.9)(jiti@2.4.2)(rollup@4.40.1)(typescript@5.7.2))
       astro:
-        specifier: ^5.16.14
-        version: 5.16.14(@types/node@24.10.9)(jiti@2.4.2)(rollup@4.40.1)(typescript@5.7.2)
+        specifier: ^5.16.15
+        version: 5.16.15(@types/node@24.10.9)(jiti@2.4.2)(rollup@4.40.1)(typescript@5.7.2)
       bluesky-comments-tag:
         specifier: workspace:^
         version: link:../../packages/comments
@@ -918,8 +918,8 @@ packages:
     resolution: {integrity: sha512-LElXdjswlqjWrPpJFg1Fx4wpkOCxj1TDHlSV4PlaRxHGWko024xICaa97ZkMfs6DRKlCguiAI+rbXv5GWwXIkg==}
     hasBin: true
 
-  astro@5.16.14:
-    resolution: {integrity: sha512-+XtShBCwsL5IezGvSeJTIHoZl3RGDOiB2u54t5phS+3haa0A5kGWXbZAmh5O/xFIv19/1cxHbDFa2i0Ot16SMw==}
+  astro@5.16.15:
+    resolution: {integrity: sha512-+X1Z0NTi2pa5a0Te6h77Dgc44fYj63j1yx6+39Nvg05lExajxSq7b1Uj/gtY45zoum8fD0+h0nak+DnHighs3A==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -2124,9 +2124,6 @@ packages:
     resolution: {integrity: sha512-VAH4IvQ7BDFYglMd7BPRDfLgxZZX4O4TFcRDA6EN5X7erNJJq+McIEp8np9aVtxrCJ6qx4GTYVfOWNjcqwZgRw==}
     engines: {node: '>=8'}
 
-  ufo@1.6.1:
-    resolution: {integrity: sha512-9a4/uxlTWJ4+a5i0ooc1rU7C7YOw3wT+UGqdeNNHWnOF9qcMBgLRS+4IYUqbczewFx4mLEig6gawh7X6mFlEkA==}
-
   ufo@1.6.3:
     resolution: {integrity: sha512-yDJTmhydvl5lJzBmy/hyOAA0d+aqCBuwl818haVdYCRrWV84o7YyeVm4QlVHStqNrrJSTb6jKuFAVqAFsr+K3Q==}
 
@@ -2431,12 +2428,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@4.3.13(astro@5.16.14(@types/node@24.10.9)(jiti@2.4.2)(rollup@4.40.1)(typescript@5.7.2))':
+  '@astrojs/mdx@4.3.13(astro@5.16.15(@types/node@24.10.9)(jiti@2.4.2)(rollup@4.40.1)(typescript@5.7.2))':
     dependencies:
       '@astrojs/markdown-remark': 6.3.10
       '@mdx-js/mdx': 3.1.1
       acorn: 8.15.0
-      astro: 5.16.14(@types/node@24.10.9)(jiti@2.4.2)(rollup@4.40.1)(typescript@5.7.2)
+      astro: 5.16.15(@types/node@24.10.9)(jiti@2.4.2)(rollup@4.40.1)(typescript@5.7.2)
       es-module-lexer: 1.7.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.5
@@ -3247,7 +3244,7 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro@5.16.14(@types/node@24.10.9)(jiti@2.4.2)(rollup@4.40.1)(typescript@5.7.2):
+  astro@5.16.15(@types/node@24.10.9)(jiti@2.4.2)(rollup@4.40.1)(typescript@5.7.2):
     dependencies:
       '@astrojs/compiler': 2.13.0
       '@astrojs/internal-helpers': 0.7.5
@@ -4480,7 +4477,7 @@ snapshots:
     dependencies:
       destr: 2.0.5
       node-fetch-native: 1.6.7
-      ufo: 1.6.1
+      ufo: 1.6.3
 
   ohash@2.0.11: {}
 
@@ -5001,8 +4998,6 @@ snapshots:
   typescript@5.7.2: {}
 
   typical@4.0.0: {}
-
-  ufo@1.6.1: {}
 
   ufo@1.6.3: {}
 
