@@ -18,5 +18,5 @@
 		"prettier": "^3.8.1",
 		"vitest": "^4.0.18"
 	},
-	"packageManager": "pnpm@10.28.1"
+	"packageManager": "pnpm@10.28.2"
 }
