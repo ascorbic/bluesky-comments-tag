@@ -13,25 +13,25 @@ importers:
         version: 0.7.0
       '@changesets/cli':
         specifier: ^2.31.0
-        version: 2.31.0(@types/node@24.12.4)
+        version: 2.31.0(@types/node@26.6.5)
       '@types/node':
-        specifier: ^24.12.4
-        version: 24.12.4
+        specifier: ^26.6.5
+        version: 26.6.5
       prettier:
         specifier: ^3.8.3
         version: 3.8.3
       vitest:
         specifier: ^4.1.6
-        version: 4.1.6(@types/node@24.12.4)(vite@6.4.1(@types/node@24.12.4)(jiti@2.4.2))
+        version: 4.1.6(@types/node@26.6.5)(vite@6.4.1(@types/node@26.6.5)(jiti@2.4.2))
 
   demos/comments:
     dependencies:
       '@astrojs/mdx':
         specifier: 4.3.14
-        version: 4.3.14(astro@5.18.1(@types/node@24.12.4)(jiti@2.4.2)(rollup@4.40.1)(typescript@5.7.2))
+        version: 4.3.14(astro@5.18.1(@types/node@26.6.5)(jiti@2.4.2)(rollup@4.40.1)(typescript@5.7.2))
       astro:
         specifier: ^5.18.1
-        version: 5.18.1(@types/node@24.12.4)(jiti@2.4.2)(rollup@4.40.1)(typescript@5.7.2)
+        version: 5.18.1(@types/node@26.6.5)(jiti@2.4.2)(rollup@4.40.1)(typescript@5.7.2)
       bluesky-comments-tag:
         specifier: workspace:^
         version: link:../../packages/comments
@@ -946,8 +946,8 @@ packages:
   '@types/node@12.20.55':
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
 
-  '@types/node@24.12.4':
-    resolution: {integrity: sha512-GUUEShf+PBCGW2KaXwcIt3Yk+e3pkKwWKb9GSyM9WQVE+ep2jzmHdGsHzu4wgcZy5fN9FBdVzjpBQsYlpfpgLA==}
+  '@types/node@26.6.5':
+    resolution: {integrity: sha512-uMzsv9stDdofIZBx4UGh4Z9ZgXnGC9seRDscilBcTHAeOFk67MZg/k9bWVfO+bk4qZmG+l52hRnLwUiH2LnJTg==}
 
   '@types/unist@2.0.11':
     resolution: {integrity: sha512-CmBKiL6NNo/OqgmMn95Fk9Whlp2mtvIv+KNpQKN2F4SjvrEesubTRWGYSg+BnWZOnlCaSTU1sMpsBOzgbYhnsA==}
@@ -2293,6 +2293,7 @@ packages:
   tsconfck@3.1.6:
     resolution: {integrity: sha512-ks6Vjr/jEw0P1gmOVwutM3B7fWxoWBL2KRDb1JfqGVawBmO5UsvmWOQFGHBPl5yxYz4eERr19E6L7NMv+Fej4w==}
     engines: {node: ^18 || >=20}
+    deprecated: unmaintained
     hasBin: true
     peerDependencies:
       typescript: ^5.0.0
@@ -2330,8 +2331,8 @@ packages:
   uncrypto@0.1.3:
     resolution: {integrity: sha512-Ql87qFHB3s/De2ClA9e0gsnS6zXG27SkTiSJwjCc9MebbfapQfuPzumMIUMi38ezPZVNFcHI9sUIepeQfw8J8Q==}
 
-  undici-types@7.16.0:
-    resolution: {integrity: sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==}
+  undici-types@8.9.0:
+    resolution: {integrity: sha512-KTDyRTYX8sWmKXAikPHHSyc63CRPETMctyjKFupcC6OBLXT3xsN0e9aF7m+mIXutFWpUXuedtowG7iLOzp0kQg==}
 
   unified@11.0.5:
     resolution: {integrity: sha512-xKvGhPWw3k84Qjh8bI3ZeJjqnyadK+GEFtazSfZv/rKeTkTjOJho6mFqh2SM96iIcZokxiOpg78GazTSg8+KHA==}
@@ -2632,12 +2633,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@4.3.14(astro@5.18.1(@types/node@24.12.4)(jiti@2.4.2)(rollup@4.40.1)(typescript@5.7.2))':
+  '@astrojs/mdx@4.3.14(astro@5.18.1(@types/node@26.6.5)(jiti@2.4.2)(rollup@4.40.1)(typescript@5.7.2))':
     dependencies:
       '@astrojs/markdown-remark': 6.3.11
       '@mdx-js/mdx': 3.1.1
       acorn: 8.15.0
-      astro: 5.18.1(@types/node@24.12.4)(jiti@2.4.2)(rollup@4.40.1)(typescript@5.7.2)
+      astro: 5.18.1(@types/node@26.6.5)(jiti@2.4.2)(rollup@4.40.1)(typescript@5.7.2)
       es-module-lexer: 1.7.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.5
@@ -2725,7 +2726,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@changesets/cli@2.31.0(@types/node@24.12.4)':
+  '@changesets/cli@2.31.0(@types/node@26.6.5)':
     dependencies:
       '@changesets/apply-release-plan': 7.1.1
       '@changesets/assemble-release-plan': 6.0.10
@@ -2741,7 +2742,7 @@ snapshots:
       '@changesets/should-skip-package': 0.1.2
       '@changesets/types': 6.1.0
       '@changesets/write': 0.4.0
-      '@inquirer/external-editor': 1.0.3(@types/node@24.12.4)
+      '@inquirer/external-editor': 1.0.3(@types/node@26.6.5)
       '@manypkg/get-packages': 1.1.3
       ansi-colors: 4.1.3
       enquirer: 2.4.1
@@ -3121,12 +3122,12 @@ snapshots:
   '@img/sharp-win32-x64@0.34.3':
     optional: true
 
-  '@inquirer/external-editor@1.0.3(@types/node@24.12.4)':
+  '@inquirer/external-editor@1.0.3(@types/node@26.6.5)':
     dependencies:
       chardet: 2.1.1
       iconv-lite: 0.7.0
     optionalDependencies:
-      '@types/node': 24.12.4
+      '@types/node': 26.6.5
 
   '@jridgewell/sourcemap-codec@1.5.5': {}
 
@@ -3404,9 +3405,9 @@ snapshots:
 
   '@types/node@12.20.55': {}
 
-  '@types/node@24.12.4':
+  '@types/node@26.6.5':
     dependencies:
-      undici-types: 7.16.0
+      undici-types: 8.9.0
 
   '@types/unist@2.0.11': {}
 
@@ -3423,13 +3424,13 @@ snapshots:
       chai: 6.2.2
       tinyrainbow: 3.1.0
 
-  '@vitest/mocker@4.1.6(vite@6.4.1(@types/node@24.12.4)(jiti@2.4.2))':
+  '@vitest/mocker@4.1.6(vite@6.4.1(@types/node@26.6.5)(jiti@2.4.2))':
     dependencies:
       '@vitest/spy': 4.1.6
       estree-walker: 3.0.3
       magic-string: 0.30.21
     optionalDependencies:
-      vite: 6.4.1(@types/node@24.12.4)(jiti@2.4.2)
+      vite: 6.4.1(@types/node@26.6.5)(jiti@2.4.2)
 
   '@vitest/pretty-format@4.1.6':
     dependencies:
@@ -3527,7 +3528,7 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro@5.18.1(@types/node@24.12.4)(jiti@2.4.2)(rollup@4.40.1)(typescript@5.7.2):
+  astro@5.18.1(@types/node@26.6.5)(jiti@2.4.2)(rollup@4.40.1)(typescript@5.7.2):
     dependencies:
       '@astrojs/compiler': 2.13.0
       '@astrojs/internal-helpers': 0.7.6
@@ -3584,8 +3585,8 @@ snapshots:
       unist-util-visit: 5.0.0
       unstorage: 1.17.4
       vfile: 6.0.3
-      vite: 6.4.1(@types/node@24.12.4)(jiti@2.4.2)
-      vitefu: 1.1.1(vite@6.4.1(@types/node@24.12.4)(jiti@2.4.2))
+      vite: 6.4.1(@types/node@26.6.5)(jiti@2.4.2)
+      vitefu: 1.1.1(vite@6.4.1(@types/node@26.6.5)(jiti@2.4.2))
       xxhash-wasm: 1.1.0
       yargs-parser: 21.1.1
       yocto-spinner: 0.2.3
@@ -5319,7 +5320,7 @@ snapshots:
 
   uncrypto@0.1.3: {}
 
-  undici-types@7.16.0: {}
+  undici-types@8.9.0: {}
 
   unified@11.0.5:
     dependencies:
@@ -5411,7 +5412,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
 
-  vite@6.4.1(@types/node@24.12.4)(jiti@2.4.2):
+  vite@6.4.1(@types/node@26.6.5)(jiti@2.4.2):
     dependencies:
       esbuild: 0.25.0
       fdir: 6.5.0(picomatch@4.0.3)
@@ -5420,18 +5421,18 @@ snapshots:
       rollup: 4.40.1
       tinyglobby: 0.2.15
     optionalDependencies:
-      '@types/node': 24.12.4
+      '@types/node': 26.6.5
       fsevents: 2.3.3
       jiti: 2.4.2
 
-  vitefu@1.1.1(vite@6.4.1(@types/node@24.12.4)(jiti@2.4.2)):
+  vitefu@1.1.1(vite@6.4.1(@types/node@26.6.5)(jiti@2.4.2)):
     optionalDependencies:
-      vite: 6.4.1(@types/node@24.12.4)(jiti@2.4.2)
+      vite: 6.4.1(@types/node@26.6.5)(jiti@2.4.2)
 
-  vitest@4.1.6(@types/node@24.12.4)(vite@6.4.1(@types/node@24.12.4)(jiti@2.4.2)):
+  vitest@4.1.6(@types/node@26.6.5)(vite@6.4.1(@types/node@26.6.5)(jiti@2.4.2)):
     dependencies:
       '@vitest/expect': 4.1.6
-      '@vitest/mocker': 4.1.6(vite@6.4.1(@types/node@24.12.4)(jiti@2.4.2))
+      '@vitest/mocker': 4.1.6(vite@6.4.1(@types/node@26.6.5)(jiti@2.4.2))
       '@vitest/pretty-format': 4.1.6
       '@vitest/runner': 4.1.6
       '@vitest/snapshot': 4.1.6
@@ -5448,10 +5449,10 @@ snapshots:
       tinyexec: 1.0.2
       tinyglobby: 0.2.15
       tinyrainbow: 3.1.0
-      vite: 6.4.1(@types/node@24.12.4)(jiti@2.4.2)
+      vite: 6.4.1(@types/node@26.6.5)(jiti@2.4.2)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@types/node': 24.12.4
+      '@types/node': 26.6.5
     transitivePeerDependencies:
       - msw
 
